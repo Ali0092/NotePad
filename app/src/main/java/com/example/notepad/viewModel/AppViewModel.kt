@@ -1,5 +1,7 @@
 package com.example.notepad.viewModel
 
+
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -13,26 +15,22 @@ import javax.inject.Inject
 class AppViewModel
 @Inject constructor(private val repo: Repository) : ViewModel() {
 
-   private val _item=MutableLiveData<Item>()
-           val item:MutableLiveData<Item>
-           get() = _item
+  lateinit var todos: LiveData<List<Item>>
 
-    init {
-        _item.value=Item(1," "," ")
-    }
+  init {
+      todos =repo.getAllItems()
+  }
+      fun getAllItems(){
+       todos =repo.getAllItems()
+      }
 
     fun addItem(item: Item){
        viewModelScope.launch {
-         _item.value=item
          repo.addItem(item)
        }
     }
 
-    fun getItems(){
-        viewModelScope.launch {
-            repo.getAllItems()
-        }
-    }
+
 
 
 }

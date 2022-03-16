@@ -16,9 +16,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    @Provides
-    @Singleton
-    fun getDAO(db:AppDB):ItemDAO=db.getDao()
 
     @Provides
     @Singleton
@@ -27,6 +24,10 @@ object AppModule {
         AppDB::class.java,
         "Items_DataBase"
     ).build()
+
+    @Provides
+    @Singleton
+    fun getDAO(db:AppDB):ItemDAO=db.getDao()
 
     @Provides
     @Singleton

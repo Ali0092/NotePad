@@ -14,5 +14,5 @@ interface ItemDAO {
     suspend fun setItem(item: Item)
 
     @Query("SELECT*FROM ITEM_TABLE")
-    suspend fun getAllItems():LiveData<List<Item>>
+    fun getAllItems():LiveData<List<Item>>
 }
