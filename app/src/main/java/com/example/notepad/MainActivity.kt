@@ -24,10 +24,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setUpRecyclerView()
-        val temp= Item(1,"Testing","This is the testing Symbol...")
-        val temp1= Item(2,"Testing1","This is the testing Symbol...1")
+        val temp= Item(1,"Testing","This is the testing Symbol and its for checking the wrap content...")
         myViewModel.addItem(temp)
-        myViewModel.addItem(temp1)
 
         myViewModel.todos.observe(this, Observer { atoms->
         myAdapter.getDataChanges(atoms)
