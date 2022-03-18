@@ -14,30 +14,10 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-   private lateinit var binding:ActivityMainBinding
-   private val myAdapter by lazy { ItemAdapter() }
-   private val myViewModel by viewModels<AppViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        setUpRecyclerView()
-        val temp= Item(1,"Testing","This is the testing Symbol and its for checking the wrap content...")
-        myViewModel.addItem(temp)
-
-        myViewModel.todos.observe(this, Observer { atoms->
-        myAdapter.getDataChanges(atoms)
-        })
-
-
-    }
-
-
-    fun setUpRecyclerView(){
-        binding.recView.adapter=myAdapter
-        binding.recView.layoutManager=LinearLayoutManager(this)
+        setContentView(R.layout.activity_main)
     }
 
 }

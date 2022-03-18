@@ -2,7 +2,11 @@ package com.example.notepad.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.notepad.Fragments.MainFragment
+import com.example.notepad.R
+import com.example.notepad.databinding.FragmentMainBinding
 import com.example.notepad.databinding.ItemLayoutBinding
 import com.example.notepad.model.Item
 
@@ -24,6 +28,9 @@ class ItemAdapter:RecyclerView.Adapter<ItemAdapter.viewHolder>() {
         holder.binding.apply {
             this.titleEt.text=items[position].title
             this.bodyEt.text=items[position].body
+        }
+        holder.binding.itemLayout.setOnClickListener {
+            it.findNavController().navigate(R.id.action_mainFragment_to_updateFragment)
         }
     }
 
