@@ -1,13 +1,13 @@
 package com.example.notepad.Fragments
 
+import android.app.ActionBar
 import android.os.Bundle
+import android.view.*
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.notepad.R
 import com.example.notepad.databinding.FragmentAddBinding
-import com.example.notepad.databinding.FragmentMainBinding
 
 class AddFragment : Fragment() {
 
@@ -19,8 +19,15 @@ class AddFragment : Fragment() {
     ): View {
         binding= FragmentAddBinding.inflate(inflater,container,false)
 
+        setHasOptionsMenu(true)
+
         //Adding data in ROOM....
         return binding.root
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.navigation_menu,menu)
     }
 
 }
