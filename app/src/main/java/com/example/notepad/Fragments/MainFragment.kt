@@ -18,13 +18,14 @@ class MainFragment : Fragment() {
 
     private lateinit var binding:FragmentMainBinding
     private val myAdapter by lazy { ItemAdapter() }
-    private val myViewModel by activityViewModels<AppViewModel>()
+  //  private val myViewModel by activityViewModels<AppViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding= FragmentMainBinding.inflate(inflater,container,false)
+
         setUpRecyclerView()
 
         binding.floatingActionButton.setOnClickListener {
