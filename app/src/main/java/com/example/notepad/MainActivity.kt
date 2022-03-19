@@ -14,6 +14,7 @@ import com.example.notepad.adapter.ItemAdapter
 import com.example.notepad.databinding.ActivityMainBinding
 import com.example.notepad.model.Item
 import com.example.notepad.viewModel.AppViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         //Setting up Action Bar with back Button (Default ActionBar)....
         val navHostFragment =

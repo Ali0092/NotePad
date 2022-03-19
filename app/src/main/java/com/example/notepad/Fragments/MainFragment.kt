@@ -12,6 +12,7 @@ import com.example.notepad.R
 import com.example.notepad.adapter.ItemAdapter
 import com.example.notepad.databinding.FragmentMainBinding
 import com.example.notepad.viewModel.AppViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MainFragment : Fragment() {
