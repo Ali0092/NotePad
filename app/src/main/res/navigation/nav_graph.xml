@@ -45,5 +45,8 @@
         <action
             android:id="@+id/action_updateFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.notepad.model.Item" />
     </fragment>
 </navigation>

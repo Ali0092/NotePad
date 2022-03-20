@@ -30,7 +30,17 @@ class AppViewModel
        }
     }
 
+    fun updateItem(item: Item){
+        viewModelScope.launch {
+            repo.updateItem(item)
+        }
+    }
 
+    fun deleteItem(item: Item){
+        viewModelScope.launch {
+            repo.deleteItem(item)
+        }
+    }
 
 
 }

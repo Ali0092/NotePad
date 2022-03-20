@@ -25,10 +25,8 @@ class AddFragment : Fragment() {
 
             val onBackPressedCallback = object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-
                     myViewModel.addItem(addItem())
-
-                   findNavController().navigate(R.id.action_addFragment_to_mainFragment)
+                    findNavController().navigate(R.id.action_addFragment_to_mainFragment)
                 }
             }
             requireActivity().onBackPressedDispatcher.addCallback(

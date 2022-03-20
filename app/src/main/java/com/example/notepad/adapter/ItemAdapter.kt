@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notepad.Fragments.MainFragment
+import com.example.notepad.Fragments.MainFragmentDirections
 import com.example.notepad.R
 import com.example.notepad.databinding.FragmentMainBinding
 import com.example.notepad.databinding.ItemLayoutBinding
@@ -31,7 +32,8 @@ class ItemAdapter:RecyclerView.Adapter<ItemAdapter.viewHolder>() {
             this.bodyEt.setText(items[position].body.toString())
         }
         holder.binding.itemLayout.setOnClickListener {
-            it.findNavController().navigate(R.id.action_mainFragment_to_updateFragment)
+            val action=MainFragmentDirections.actionMainFragmentToUpdateFragment(items[position])
+            it.findNavController().navigate(action)
         }
     }
 
