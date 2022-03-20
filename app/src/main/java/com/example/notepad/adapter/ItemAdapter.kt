@@ -1,5 +1,6 @@
 package com.example.notepad.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -26,8 +27,8 @@ class ItemAdapter:RecyclerView.Adapter<ItemAdapter.viewHolder>() {
 
     override fun onBindViewHolder(holder: viewHolder, position: Int) {
         holder.binding.apply {
-            this.titleEt.text=items[position].title
-            this.bodyEt.text=items[position].body
+            this.titleEt.setText(items[position].title.toString())
+            this.bodyEt.setText(items[position].body.toString())
         }
         holder.binding.itemLayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_mainFragment_to_updateFragment)
@@ -38,6 +39,7 @@ class ItemAdapter:RecyclerView.Adapter<ItemAdapter.viewHolder>() {
         return items.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun getDataChanges(items: List<Item>){
         this.items=items
         this.notifyDataSetChanged()

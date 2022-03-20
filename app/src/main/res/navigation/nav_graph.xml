@@ -28,7 +28,14 @@
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment" >
+            <argument
+                android:name="_title"
+                android:defaultValue="sweet" />
+            <argument
+                android:name="_body"
+                android:defaultValue="black rose" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/updateFragment"

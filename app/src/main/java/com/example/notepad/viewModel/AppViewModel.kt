@@ -15,7 +15,7 @@ import javax.inject.Inject
 class AppViewModel
 @Inject constructor(private val repo: Repository) : ViewModel() {
 
-  lateinit var todos: LiveData<List<Item>>
+  var todos: LiveData<List<Item>>
 
   init {
       todos =repo.getAllItems()
