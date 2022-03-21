@@ -25,7 +25,8 @@ class AddFragment : Fragment() {
 
             val onBackPressedCallback = object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    myViewModel.addItem(addItem())
+                    if(addItem().id!=0)
+                     myViewModel.addItem(addItem())
                     findNavController().navigate(R.id.action_addFragment_to_mainFragment)
                 }
             }
@@ -45,8 +46,8 @@ class AddFragment : Fragment() {
         return if(!(title.isNullOrEmpty() && body.isNullOrEmpty()))
             Item(id, title, body)
         else{
-            Toast.makeText(context,"NUll Found",Toast.LENGTH_LONG).show()
-            Item(0,"Black","Flag")
+            Toast.makeText(context,"kia kar raha ha be..",Toast.LENGTH_LONG).show()
+            Item(0," "," ")
         }
 
     }
