@@ -23,6 +23,7 @@ class AddFragment : Fragment() {
     ): View {
         binding = FragmentAddBinding.inflate(inflater, container, false)
 
+        //when back Button is pressed....
             val onBackPressedCallback = object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     if(addItem().id!=0)
@@ -38,6 +39,7 @@ class AddFragment : Fragment() {
         return binding.root
     }
 
+    //Func.. that will add the Single data Item.....
     private fun addItem(): Item {
         val id = (1..100).random()
         val title = binding.titleEt.text.toString()

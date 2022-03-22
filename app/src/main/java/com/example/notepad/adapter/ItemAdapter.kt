@@ -12,6 +12,11 @@ import com.example.notepad.databinding.FragmentMainBinding
 import com.example.notepad.databinding.ItemLayoutBinding
 import com.example.notepad.model.Item
 
+//*****************************//
+//    RecyclerView Adapter    //
+//***************************//
+
+
 class ItemAdapter:RecyclerView.Adapter<ItemAdapter.viewHolder>() {
 
     var items= emptyList<Item>()
@@ -31,6 +36,7 @@ class ItemAdapter:RecyclerView.Adapter<ItemAdapter.viewHolder>() {
             this.titleEt.setText(items[position].title.toString())
             this.bodyEt.setText(items[position].body.toString())
         }
+        //navigate to the Update Fragment when an item from the list is been clicked...
         holder.binding.itemLayout.setOnClickListener {
             val action=MainFragmentDirections.actionMainFragmentToUpdateFragment(items[position])
             it.findNavController().navigate(action)
@@ -41,6 +47,7 @@ class ItemAdapter:RecyclerView.Adapter<ItemAdapter.viewHolder>() {
         return items.size
     }
 
+    //NotifyDataSetChanges in RecyclerView...
     @SuppressLint("NotifyDataSetChanged")
     fun getDataChanges(items: List<Item>){
         this.items=items
